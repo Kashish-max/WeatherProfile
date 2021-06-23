@@ -1,0 +1,30 @@
+<div class="register">
+  <div class="r__header">
+    <div class="r_head">
+      <h1 class="r__title">Sign In</h1>
+      <p class="r__subtitle">
+        Access Weather Profile alert options
+      </p>
+    </div>
+  </div>
+  <section class="r__form_section">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(Email.value,Password.value)" ngNativeValidate>
+      <div class="r__form">
+        <div class="r__choice">Enter your credentials</div>
+        <div class="r__input">
+          <div class="input_control"><input name="latitude" #Email ngModel type="email" placeholder="Email" required></div>
+          <div class="input_control"><input name="latitude" #Password ngModel type="password" placeholder="Password" required></div>
+        </div>
+      </div>
+      <div class="form__submit">
+        <div>
+            <p>Need an account? <a routerLink="/login" routerLinkActive="active">Sign up here.</a></p>
+            <button [disabled]="!loginForm.valid" type="submit">Sign in</button>
+        </div>  
+        <div *ngIf="isLoginError" class="red-text center error-message" style="color: red; font-size:14px">
+            <i class="material-icons"></i> Incorrect email or password
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

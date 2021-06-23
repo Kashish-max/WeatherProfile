@@ -1,0 +1,26 @@
+<div class="register">
+  <div class="r__header">
+    <div class="r_head">
+      <h1 class="r__title">Create your account</h1>
+      <p class="r__subtitle">
+        Sign up to access Weather Profile alert options
+      </p>
+    </div>
+  </div>
+  <section class="r__form_section">
+    <form #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(fullName.value,Email.value,Password.value)" ngNativeValidate>
+      <div class="r__form">
+        <div class="r__choice">Enter valid credentials</div>
+        <div class="r__input">
+          <div class="input_control"><input name="latitude" #fullName ngModel type="text" placeholder="Full name" required></div>
+          <div class="input_control"><input name="latitude" #Email ngMode [pattern]="emailPattern" type="email" placeholder="Email" required></div>
+          <div class="input_control"><input name="latitude" #Password ngModel type="password" placeholder="Choose a password *" required></div>
+        </div>
+      </div>
+      <div class="form__submit">
+        <p>Already have an account? <a routerLink="/login" routerLinkActive="active">Sign in.</a></p>
+        <button type="submit">Create Account</button>
+      </div>
+    </form>
+  </section>
+</div>
