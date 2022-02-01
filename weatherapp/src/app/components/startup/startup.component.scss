@@ -1,0 +1,69 @@
+$nav_active_color: #202124;
+$nav_color : #5f6368;
+$btn_color : #1a73e8;
+$btn_active_color: #185abc;
+
+.startup {
+    padding: 60px 110px;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.s__fix {
+    width: 60%;
+    padding-right: 30px;
+}
+
+.s__intro {
+
+    h1 {
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: -.5px;
+        color: $nav_active_color;
+
+        span {
+            font-size: 35px;
+            color: rgb(75, 192, 192);
+        }
+    }
+    p {
+        font-size: 20px;
+        color: $nav_active_color;
+        font-weight: lighter;
+        letter-spacing: -0.3px;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+}
+
+.s__search {
+    width: 100%;
+    margin-top: 50px;
+
+    .s__search_title{
+
+        h2 {
+            font-size: 18px;
+            color: $nav_color;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+    }
+    .s__search_container {
+        position: relative;
+        width: 70%;
+        margin-top: 20px;
+    }
+
+    // input {
+    //     width: 100%;
+    //     box-shadow: 0 1px 5px #dadce0;
+    //     padding: 15px 50px 15px 15px;
+    //     color: $nav_active_color;
+    // }
+}
+
+.s__variable {
+    width: 50%;
+}

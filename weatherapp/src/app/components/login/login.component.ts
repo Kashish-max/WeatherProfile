@@ -3,7 +3,7 @@ import { SocialAuthService } from 'angularx-social-login';
 import { SocialUser, GoogleLoginProvider } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
   isLoginError: boolean = false;
+  islocationAllowed: boolean = false;
 
   creds;
 
@@ -36,14 +37,42 @@ export class LoginComponent implements OnInit {
   signOut(): void {
     this.authService.signOut();
   }
-  onSubmit(email, password) {
+
+  authenticate(email, password) {
     this.userService.userAuthentication(email, password).subscribe((data: any) => {
       localStorage.setItem('userToken', data.accessToken);
-      this.router.navigate(['/user']);
+      localStorage.setItem('userEmail', email);
+      window.location.href = "/user";
     }, 
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
       },
     );
+  }
+
+  handleLoctionError(error) {
+    this.islocationAllowed = false;
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.")
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.")
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.")
+        break;
+    }
+  }
+
+  onSubmit(email, password) {
+    if (navigator.geolocation) {  
+      navigator.geolocation.getCurrentPosition((position) => {
+        if (position) {
+          this.islocationAllowed = true;
+          this.authenticate(email, password);          
+        }
+      }, this.handleLoctionError)
+    }
   }
 }

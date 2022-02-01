@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country, State, City } from 'country-state-city';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SearchService } from "../services/search.service";
+import { SearchService } from "../../services/search/search.service";
 import * as zipcodes from "zipcodes";
 
 @Component({

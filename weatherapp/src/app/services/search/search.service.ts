@@ -7,7 +7,7 @@ import { from } from "rxjs";
   providedIn: 'root'
 })
 export class SearchService {
-  url = "http://localhost:3600/weather/latlong";
+  url = "https://weatherapi-beta.vercel.app/weather/latlong";
 
   constructor(private http: HttpClient) { }
   

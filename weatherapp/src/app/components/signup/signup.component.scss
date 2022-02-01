@@ -8,7 +8,6 @@ $btn_active_color: #185abc;
     height: 100%;
     background: #f8f9fa;
     margin-top: 10px;
-    padding-bottom: 100px;
 }
 
 .r__header {
@@ -109,42 +108,40 @@ $btn_active_color: #185abc;
         }
     }
     .form__submit {
-        padding: 20px 20px 40px;
-        background: #fff;
-        box-shadow: 0 2px 1px -1px rgb(0, 0, 0, 0.20), 0 1px 1px 0 rgb(0, 0, 0, 0.14), 0 1px 3px 0 rgb(0, 0, 0, 0.12);        
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 24px 0 80px;
+        color: $nav_color;
 
-        div:nth-child(1){
-            justify-content: space-between;
-        }
-        div{
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            color: $nav_color;
-            max-width: 560px;
-
-            p {
-                font-size: 14px;
-                a {
-                    color: #1a73e8;
-
-                    &:hover {
-                        color: #3c95fa;
-                    }
-                }
-            }
-            button {
-                padding: 13px 24px;
-                background: $btn_color;
-                transition: 0.2s;            
-                color: #fff;
-                border-radius: 4px;
-                cursor: pointer;
+        p {
+            font-size: 14px;
+            a {
+                color: #1a73e8;
 
                 &:hover {
-                    background: $btn_active_color;
+                    color: #3c95fa;
                 }
             }
         }
+        button {
+            padding: 13px 24px;
+            background: $btn_color;
+            transition: 0.2s;            
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background: $btn_active_color;
+            }
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .r__form_section .form__submit {
+        padding: 24px 10px 80px;
     }
 }

@@ -10,6 +10,18 @@
   <section class="r__form_section">
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(Email.value,Password.value)" ngNativeValidate>
       <div class="r__form">
+        <div *ngIf="!user" class="g__container">
+          <div class="g__login">
+            <button class="login-Btn" (click)="signInWithGoogle()">
+              <img
+                class="social-btn-icon"
+                alt="Register with Google"
+                src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg"
+              />
+              Sign in with Google
+            </button>
+          </div>
+        </div>
         <div class="r__choice">Enter your credentials</div>
         <div class="r__input">
           <div class="input_control"><input name="latitude" #Email ngModel type="email" placeholder="Email" required></div>
@@ -18,7 +30,7 @@
       </div>
       <div class="form__submit">
         <div>
-            <p>Need an account? <a routerLink="/login" routerLinkActive="active">Sign up here.</a></p>
+            <p>Need an account? <a href="/login">Sign up here.</a></p>
             <button [disabled]="!loginForm.valid" type="submit">Sign in</button>
         </div>  
         <div *ngIf="isLoginError" class="red-text center error-message" style="color: red; font-size:14px">

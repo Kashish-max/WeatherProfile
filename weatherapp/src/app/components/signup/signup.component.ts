@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialAuthService } from 'angularx-social-login';
 import { SocialUser, GoogleLoginProvider } from 'angularx-social-login';
-import { Router } from '@angular/router';
-import { UserService } from '../services/user.service'
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../../services/user/user.service'
 
 @Component({
   selector: 'signup',
@@ -43,7 +44,7 @@ export class SignupComponent implements OnInit {
       .subscribe((data: any) => {
         console.log("registered ", data);
         if (data.id) {
-          this.router.navigate(['/user'])
+          window.location.href = '/user';
         }
       });
   }

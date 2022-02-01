@@ -20,6 +20,11 @@ app.use(function (req, res, next) {
     }
 });
 
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
 app.use(bodyParser.json());
 AuthorizationRouter.routesConfig(app);
 UsersRouter.routesConfig(app);
